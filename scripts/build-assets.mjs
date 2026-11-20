@@ -111,6 +111,7 @@ Shopify: Barlow and Barlow Condensed are both available in the Shopify font libr
   <text x="100" y="1030" font-family="'IBM Plex Mono'" font-weight="500" font-size="26" fill="${C.lake}" letter-spacing="3">ACCENT · IBM PLEX MONO MEDIUM — SPECS ONLY</text>
   <text x="100" y="1140" font-family="'IBM Plex Mono'" font-weight="500" font-size="64" fill="${C.spruce}">8 LB · 300 YD · #6 · 1/8 OZ</text>`;
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">${s}</svg>`;
+  write('03-Typography/creekside-tackle-type-specimen.svg', svg);
   await R.png(svg, path.join(KIT, '03-Typography/creekside-tackle-type-specimen.png'), W, H, { transparent: false });
 }
 

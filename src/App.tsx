@@ -11,6 +11,7 @@ import { WebsiteConcept } from './sections/WebsiteConcept';
 import { Guidelines } from './sections/Guidelines';
 import { Downloads } from './sections/Downloads';
 import { Footer } from './sections/Footer';
+import { Toast } from './components/ui';
 
 export default function App() {
   return (
@@ -31,6 +32,7 @@ export default function App() {
         <Downloads />
       </main>
       <Footer />
+      <Toast />
     </>
   );
 }

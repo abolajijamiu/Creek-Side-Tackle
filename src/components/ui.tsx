@@ -1,5 +1,5 @@
-import { useMemo, useState, type ReactNode, type CSSProperties } from 'react';
-import { logo, uniq, type LogoKey, type Scheme } from '../lib/kit';
+import { useEffect, useMemo, useState, type ReactNode, type CSSProperties } from 'react';
+import { logo, uniq, downloadPageAsHtml, type LogoKey, type Scheme } from '../lib/kit';
 import { ICONS } from '../../brand/graphics.mjs';
 
 /** Render an SVG string responsively. */
@@ -86,5 +86,35 @@ export function Caption({ title, children }: { title: string; children?: ReactNo
       <strong>{title}</strong>
       {children && <span>{children}</span>}
     </figcaption>
+  );
+}
+
+/* ── Status toast + "Download as HTML" ─────────────────────────── */
+export function notify(msg: string) { window.dispatchEvent(new CustomEvent('ct-status', { detail: msg })); }
+
+export function Toast() {
+  const [msg, setMsg] = useState('');
+  useEffect(() => {
+    let t = 0;
+    const on = (e: Event) => { setMsg((e as CustomEvent<string>).detail); window.clearTimeout(t); t = window.setTimeout(() => setMsg(''), 4200); };
+    window.addEventListener('ct-status', on);
+    return () => window.removeEventListener('ct-status', on);
+  }, []);
+  return <p className="dl-status" role="status" aria-live="polite">{msg}</p>;
+}
+
+export function SaveHtmlButton({ className = 'btn btn--ghost', label = 'Download as HTML', onDone }: { className?: string; label?: string; onDone?: () => void }) {
+  const [busy, setBusy] = useState(false);
+  const run = async () => {
+    setBusy(true); notify('Preparing index.html…');
+    const r = await downloadPageAsHtml();
+    setBusy(false); onDone?.();
+    notify(r === 'saved' ? 'Saved index.html' : r === 'started' ? 'Downloading index.html (one file, works offline)' : r === 'declined' ? 'Download cancelled' : 'The single-file version is only available in the built presentation (npm run build).');
+  };
+  return (
+    <button type="button" className={className} onClick={run} disabled={busy} aria-busy={busy}>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.1" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14" /></svg>
+      {label}
+    </button>
   );
 }

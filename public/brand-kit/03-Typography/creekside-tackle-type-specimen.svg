@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 1300" width="2000" height="1300"><rect width="2000" height="1300" fill="#F2F1E9"/>
+  <text x="100" y="140" font-family="'IBM Plex Mono'" font-weight="500" font-size="26" fill="#2B6077" letter-spacing="3">PRIMARY · BARLOW CONDENSED BOLD</text>
+  <text x="96" y="370" font-family="'Barlow Condensed'" font-weight="700" font-size="250" fill="#1F3D2E">CAST CLOSE TO HOME</text>
+  <text x="100" y="470" font-family="'Barlow Condensed'" font-weight="600" font-size="64" fill="#1F3D2E" letter-spacing="4">ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789</text>
+  <rect x="100" y="540" width="1800" height="2" fill="#1F3D2E" opacity=".2"/>
+  <text x="100" y="620" font-family="'IBM Plex Mono'" font-weight="500" font-size="26" fill="#2B6077" letter-spacing="3">SECONDARY · BARLOW REGULAR / MEDIUM / SEMIBOLD</text>
+  <text x="100" y="720" font-family="Barlow" font-weight="400" font-size="52" fill="#24292A">Inline spinners for trout, bass and panfish.</text>
+  <text x="100" y="800" font-family="Barlow" font-weight="500" font-size="52" fill="#24292A">Cast, count down and retrieve steadily.</text>
+  <text x="100" y="880" font-family="Barlow" font-weight="600" font-size="52" fill="#24292A">Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk 0123456789</text>
+  <rect x="100" y="950" width="1800" height="2" fill="#1F3D2E" opacity=".2"/>
+  <text x="100" y="1030" font-family="'IBM Plex Mono'" font-weight="500" font-size="26" fill="#2B6077" letter-spacing="3">ACCENT · IBM PLEX MONO MEDIUM — SPECS ONLY</text>
+  <text x="100" y="1140" font-family="'IBM Plex Mono'" font-weight="500" font-size="64" fill="#1F3D2E">8 LB · 300 YD · #6 · 1/8 OZ</text></svg>

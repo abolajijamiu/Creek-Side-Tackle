@@ -7,9 +7,9 @@
     "dev": "vite",
     "assets": "node scripts/build-assets.mjs",
     "typecheck": "tsc --noEmit -p .",
-    "build": "npm run assets && npm run typecheck && vite build && node scripts/package.mjs",
+    "build": "npm run assets && npm run typecheck && vite build && node scripts/package.mjs && node scripts/standalone.mjs",
     "preview": "vite preview",
-    "build:artifact": "node scripts/artifact.mjs"
+    "build:standalone": "node scripts/standalone.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",

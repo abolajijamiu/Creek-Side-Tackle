@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Section, SectionHead, Icon, Logo } from '../components/ui';
-import { download } from '../lib/kit';
+import { Section, SectionHead, Icon, Logo, SaveHtmlButton, notify } from '../components/ui';
+import { download, isFileUrl } from '../lib/kit';
+import { kitMeta } from '../lib/pack';
 
 type Manifest = Record<string, { bytes: number; files?: number }>;
 type FileLink = { label: string; path: string; fmt: string };
@@ -90,17 +91,26 @@ const PACKS: Pack[] = [
 
 const fmtSize = (b?: number) => (b == null ? '' : b > 1e6 ? `${(b / 1e6).toFixed(1)} MB` : `${Math.max(1, Math.round(b / 1e3))} KB`);
 const fname = (p: string) => p.split('/').pop()!;
+const countFiles = (zip: string) => {
+  const name = zip.split('/').pop()!.replace(/\.zip$/, '');
+  const keys = Object.keys(kitMeta?.sizes || {}).filter((k) => k.startsWith('brand-kit/'));
+  return name === 'creekside-tackle-brand-kit' ? keys.length : keys.filter((k) => k.startsWith(`brand-kit/${name}/`)).length;
+};
 
 export function Downloads() {
   const [man, setMan] = useState<Manifest>({});
-  const [status, setStatus] = useState('');
   useEffect(() => {
-    fetch('downloads/manifest.json').then((r) => (r.ok ? r.json() : {})).then(setMan).catch(() => setMan({}));
+    // Sizes come from the kit embedded in the single-file version, or from the host's manifest
+    const embedded: Manifest = {};
+    if (kitMeta) for (const [k, v] of Object.entries(kitMeta.sizes)) embedded[k] = { bytes: v, files: k.startsWith('downloads/') ? countFiles(k) : undefined };
+    if (Object.keys(embedded).length) setMan(embedded);
+    if (isFileUrl()) return;
+    fetch('downloads/manifest.json').then((r) => (r.ok ? r.json() : null)).then((m) => m && setMan(m)).catch(() => undefined);
   }, []);
   const get = async (path: string, name = fname(path)) => {
-    setStatus(`Preparing ${name}…`);
+    notify(`Preparing ${name}…`);
     const r = await download(path, name);
-    setStatus(r === 'saved' ? `Saved ${name}` : r === 'started' ? `Downloading ${name}` : r === 'declined' ? 'Download cancelled' : `Couldn't download ${name}. Try the full kit ZIP instead.`);
+    notify(r === 'saved' ? `Saved ${name}` : r === 'started' ? `Downloading ${name}` : r === 'declined' ? 'Download cancelled' : `Couldn't download ${name}. Try the full kit ZIP instead.`);
   };
   const full = man['downloads/creekside-tackle-brand-kit.zip'];
   return (
@@ -112,11 +122,13 @@ export function Downloads() {
         <div className="dl-hero__body">
           <h3>Complete brand kit</h3>
           <p>Logos, colour, typography, graphics, social templates, print files, web assets and the 26-page brand guide in one ZIP, with a README that explains which file to use where.</p>
+          <p className="dl-hero__note"><strong>Download as HTML</strong> saves this whole presentation as one <code>index.html</code>. It opens offline in any browser and carries the full brand kit inside it, so every download button keeps working.</p>
           <div className="dl-hero__ctas">
             <button type="button" className="btn btn--light" onClick={() => get('downloads/creekside-tackle-brand-kit.zip')}>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3v12M6 10l6 6 6-6M4 20h16" /></svg>
               Download everything {full && <span className="dl-size">· {fmtSize(full.bytes)}</span>}
             </button>
+            <SaveHtmlButton />
             <button type="button" className="btn btn--ghost" onClick={() => get('brand-kit/Creekside-Tackle-Brand-Guidelines.pdf')}>Brand guide PDF {man['brand-kit/Creekside-Tackle-Brand-Guidelines.pdf'] && <span className="dl-size">· {fmtSize(man['brand-kit/Creekside-Tackle-Brand-Guidelines.pdf'].bytes)}</span>}</button>
           </div>
         </div>
@@ -166,7 +178,6 @@ export function Downloads() {
 ├── 06-Print/               Business-Card · Sticker · Labels
 └── 07-Web/                 Favicon · Email-Signature · Brand-Tokens`}</pre>
       </div>
-      <p className="dl-status" role="status" aria-live="polite">{status}</p>
     </Section>
   );
 }

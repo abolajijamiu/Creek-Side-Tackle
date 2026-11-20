@@ -45,7 +45,11 @@ npm run dev          # live-reload development server
 
 `npm run build` outputs a static site in `dist/` that can be hosted anywhere (Netlify, Vercel, GitHub Pages or a Shopify page link). Downloads in `dist/downloads/` include the full kit ZIP and one ZIP per folder.
 
-`npm run build:artifact` (after `npm run build`) produces `dist-artifact/`, a self-contained version with all scripts and styles inlined, for hosts that only allow inline code.
+### Single-file version (`standalone/index.html`)
+
+`npm run build` also writes **`standalone/index.html`**, the whole presentation as one 4 MB HTML file. Fonts, styles and scripts are inlined, and the complete brand kit is packed inside it. It opens offline in any modern browser, straight from disk, and every download button still works: SVGs, PDFs and text files are unpacked from the page, PNGs are redrawn from their SVG sources, and ZIPs are assembled in the browser.
+
+The **Download as HTML** button (nav, Downloads chapter and footer) saves the page itself as that same `index.html`, so anyone viewing the presentation can keep their own copy.
 
 ### How it's built
 

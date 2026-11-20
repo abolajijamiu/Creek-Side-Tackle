@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { CHAPTERS } from '../lib/chapters';
-import { Logo } from '../components/ui';
+import { Logo, SaveHtmlButton } from '../components/ui';
 
 export function Nav() {
   const [open, setOpen] = useState(false);
@@ -26,6 +26,7 @@ export function Nav() {
             <a key={c.id} href={`#${c.id}`} className={active === c.id ? 'is-active' : ''}>{c.label}</a>
           ))}
         </div>
+        <SaveHtmlButton className="btn btn--ghost btn--sm nav__html" label="HTML" />
         <a href="#kit" className="btn btn--light btn--sm nav__cta">Brand Kit</a>
         <button type="button" className="nav__menu" aria-expanded={open} aria-controls="nav-drawer" aria-label={open ? 'Close menu' : 'Open menu'} onClick={() => setOpen((o) => !o)}>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -36,6 +37,7 @@ export function Nav() {
       {open && (
         <div id="nav-drawer" className="wrap nav__drawer">
           {CHAPTERS.map((c) => <a key={c.id} href={`#${c.id}`} onClick={() => setOpen(false)}>{c.label}</a>)}
+          <SaveHtmlButton className="btn btn--light nav__drawer-btn" onDone={() => setOpen(false)} />
         </div>
       )}
     </nav>

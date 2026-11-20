@@ -7,3 +7,5 @@ dist-stage
 public/downloads
 dist-stage-artifact
 dist-artifact.files.json
+dist-standalone
+dist-stage-standalone

@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Section, SectionHead, Logo, Label } from '../components/ui';
 import { GUIDE_TOC } from '../lib/guideContents';
-import { download } from '../lib/kit';
+import { download, isFileUrl } from '../lib/kit';
 
 const RULES = [
   { t: 'Use the supplied artwork', d: 'Never redraw, retype or rearrange the logo. Every lockup and colourway is in the kit.' },
@@ -14,6 +14,11 @@ const RULES = [
 
 export function Guidelines() {
   const [msg, setMsg] = useState('');
+  const [online, setOnline] = useState(false);
+  useEffect(() => {
+    if (isFileUrl()) return;
+    fetch('guide.html', { method: 'HEAD' }).then((r) => setOnline(r.ok && (r.headers.get('content-type') || '').includes('html'))).catch(() => setOnline(false));
+  }, []);
   const getPdf = async () => {
     setMsg('Preparing…');
     const r = await download('brand-kit/Creekside-Tackle-Brand-Guidelines.pdf', 'Creekside-Tackle-Brand-Guidelines.pdf');
@@ -35,7 +40,7 @@ export function Guidelines() {
           </ol>
           <div className="guide-promo__ctas">
             <button type="button" className="btn btn--light" onClick={getPdf}>Download PDF guide</button>
-            <a className="btn btn--ghost" href="guide.html" target="_blank" rel="noopener">View guide online</a>
+            {online && <a className="btn btn--ghost" href="guide.html" target="_blank" rel="noopener">View guide online</a>}
             <span className="guide-promo__msg" role="status">{msg}</span>
           </div>
         </div>
