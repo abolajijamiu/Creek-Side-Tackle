@@ -41,21 +41,14 @@ const FONTS = '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?fa
 }
 fs.rmSync(tmp, { recursive: true, force: true });
 
-// Downloadable files referenced by the page
-fs.cpSync(path.join(root, 'dist/downloads'), path.join(out, 'downloads'), { recursive: true });
-const refs = new Set();
-for (const f of ['src/sections/Downloads.tsx', 'src/sections/Guidelines.tsx']) {
-  const src = fs.readFileSync(path.join(root, f), 'utf8');
-  for (const m of src.matchAll(/['`](brand-kit\/[^'`]+)['`]/g)) refs.add(m[1]);
-  for (const m of src.matchAll(/`\$\{L\}(\/[^`]+)`/g)) refs.add(`brand-kit/01-Logos${m[1]}`);
-}
-for (const r of refs) {
-  const from = path.join(root, 'dist', r);
-  if (!fs.existsSync(from)) { console.warn('missing', r); continue; }
-  if (!fs.statSync(from).isFile()) continue;
-  fs.mkdirSync(path.dirname(path.join(out, r)), { recursive: true }); fs.copyFileSync(from, path.join(out, r));
-}
+// Downloadable files: the whole kit as individual files plus the size manifest. Hosts that can't
+// serve .zip files get ZIPs assembled in the browser from these (see src/lib/kit.ts → buildZip).
+fs.mkdirSync(path.join(out, 'downloads'), { recursive: true });
+fs.copyFileSync(path.join(root, 'dist/downloads/manifest.json'), path.join(out, 'downloads/manifest.json'));
+fs.cpSync(path.join(root, 'dist/brand-kit'), path.join(out, 'brand-kit'), { recursive: true });
 const all = []; const walk = (d, rel = '') => fs.readdirSync(d, { withFileTypes: true }).forEach((e) => e.isDirectory() ? walk(path.join(d, e.name), `${rel}${e.name}/`) : all.push(`${rel}${e.name}`));
 walk(out);
-fs.writeFileSync(path.join(root, 'dist-artifact.files.json'), JSON.stringify(all.filter((f) => f !== 'index.html'), null, 1));
+const CT = { '.ase': 'application/octet-stream', '.scss': 'text/plain' };
+const list = all.filter((f) => f !== 'index.html').map((f) => (CT[path.extname(f)] ? { path: f, contentType: CT[path.extname(f)] } : { path: f }));
+fs.writeFileSync(path.join(root, 'dist-artifact.files.json'), JSON.stringify(list));
 console.log(`dist-artifact: ${all.length} files, index ${(fs.statSync(path.join(out, 'index.html')).size / 1e6).toFixed(2)} MB`);

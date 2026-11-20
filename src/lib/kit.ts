@@ -56,13 +56,44 @@ function downloadsNs(): Promise<DownloadsNs> {
 if (typeof window !== 'undefined') setTimeout(() => { void downloadsNs(); }, 0);
 
 export type DownloadResult = 'saved' | 'started' | 'declined' | 'failed';
+
+async function fetchFile(url: string): Promise<Blob | null> {
+  try {
+    const res = await fetch(url);
+    if (!res.ok || (res.headers.get('content-type') || '').includes('text/html') && !url.endsWith('.html')) return null;
+    return await res.blob();
+  } catch { return null; }
+}
+
+/** Assemble a kit ZIP in the browser from the individual files listed in the manifest. */
+async function buildZip(url: string): Promise<Blob | null> {
+  const man = await fetchFile('downloads/manifest.json');
+  if (!man) return null;
+  const entries = Object.keys(JSON.parse(await man.text()) as Record<string, unknown>).filter((k) => k.startsWith('brand-kit/'));
+  const name = url.split('/').pop()!.replace(/\.zip$/, '');
+  const full = name === 'creekside-tackle-brand-kit';
+  const pick = entries.filter((k) => full || k.startsWith(`brand-kit/${name}/`));
+  const out: { name: string; data: Uint8Array }[] = [];
+  for (let i = 0; i < pick.length; i += 8) {
+    const batch = await Promise.all(pick.slice(i, i + 8).map(async (k) => {
+      const b = await fetchFile(k);
+      return b ? { name: (full ? 'Creekside-Tackle-Brand-Kit/' : '') + k.slice('brand-kit/'.length), data: new Uint8Array(await b.arrayBuffer()) } : null;
+    }));
+    batch.forEach((e) => e && out.push(e));
+  }
+  if (!out.length) return null;
+  const { makeZip } = await import('./zip');
+  return makeZip(out);
+}
+
 export async function download(url: string, filename: string): Promise<DownloadResult> {
   const ns = await downloadsNs();
   if (ns) {
     try {
-      const res = await fetch(url);
-      if (!res.ok) return 'failed';
-      await ns.save({ filename, data: await res.blob() });
+      let blob = await fetchFile(url);
+      if (!blob && url.endsWith('.zip')) blob = await buildZip(url);
+      if (!blob) return 'failed';
+      await ns.save({ filename, data: blob });
       return 'saved';
     } catch (e) {
       return (e as { code?: string })?.code === 'declined' ? 'declined' : 'failed';
