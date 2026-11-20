@@ -1,0 +1,156 @@
+[
+  {
+    "name": "Spruce",
+    "group": "primary",
+    "hex": "#1F3D2E",
+    "rgb": [
+      31,
+      61,
+      46
+    ],
+    "use": "Primary brand colour. Logo, headers, footers, packaging fields and primary buttons."
+  },
+  {
+    "name": "Lake",
+    "group": "primary",
+    "hex": "#2B6077",
+    "rgb": [
+      43,
+      96,
+      119
+    ],
+    "use": "Water colour in the symbol. Links, secondary buttons, information panels."
+  },
+  {
+    "name": "Moss",
+    "group": "secondary",
+    "hex": "#5E7A49",
+    "rgb": [
+      94,
+      122,
+      73
+    ],
+    "use": "Supporting green for category tags, illustrations and pattern work."
+  },
+  {
+    "name": "Glacier",
+    "group": "secondary",
+    "hex": "#A9C9CF",
+    "rgb": [
+      169,
+      201,
+      207
+    ],
+    "use": "Light water tone for wave lines on dark backgrounds and soft panels."
+  },
+  {
+    "name": "Driftwood",
+    "group": "secondary",
+    "hex": "#B8956A",
+    "rgb": [
+      184,
+      149,
+      106
+    ],
+    "use": "Earthy tan for kraft packaging accents, dividers and badges."
+  },
+  {
+    "name": "Bobber Red",
+    "group": "accent",
+    "hex": "#C2412A",
+    "rgb": [
+      194,
+      65,
+      42
+    ],
+    "use": "Taken from the classic red-and-white float. Sale tags, key calls to action, new-product flags."
+  },
+  {
+    "name": "Granite",
+    "group": "neutral",
+    "hex": "#24292A",
+    "rgb": [
+      36,
+      41,
+      42
+    ],
+    "use": "Body text and dark UI elements."
+  },
+  {
+    "name": "Stone",
+    "group": "neutral",
+    "hex": "#636A60",
+    "rgb": [
+      99,
+      106,
+      96
+    ],
+    "use": "Secondary text, captions and borders."
+  },
+  {
+    "name": "Birch",
+    "group": "neutral",
+    "hex": "#F2F1E9",
+    "rgb": [
+      242,
+      241,
+      233
+    ],
+    "use": "Primary light background for web and print."
+  },
+  {
+    "name": "Paper",
+    "group": "neutral",
+    "hex": "#FBFBF7",
+    "rgb": [
+      251,
+      251,
+      247
+    ],
+    "use": "Cards and raised surfaces on Birch."
+  },
+  {
+    "name": "Mist",
+    "group": "background",
+    "hex": "#E2EAE6",
+    "rgb": [
+      226,
+      234,
+      230
+    ],
+    "use": "Background"
+  },
+  {
+    "name": "Kraft",
+    "group": "background",
+    "hex": "#D8C6A6",
+    "rgb": [
+      216,
+      198,
+      166
+    ],
+    "use": "Background"
+  },
+  {
+    "name": "Night Spruce",
+    "group": "background",
+    "hex": "#14281E",
+    "rgb": [
+      20,
+      40,
+      30
+    ],
+    "use": "Background"
+  },
+  {
+    "name": "Deep Lake",
+    "group": "background",
+    "hex": "#173C4B",
+    "rgb": [
+      23,
+      60,
+      75
+    ],
+    "use": "Background"
+  }
+]

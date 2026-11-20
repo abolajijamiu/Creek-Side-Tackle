@@ -1,0 +1,9 @@
+node_modules
+dist
+dist-artifact
+*.log
+.DS_Store
+dist-stage
+public/downloads
+dist-stage-artifact
+dist-artifact.files.json

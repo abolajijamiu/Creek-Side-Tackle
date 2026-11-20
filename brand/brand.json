@@ -1,0 +1,91 @@
+{
+  "name": "Creekside Tackle",
+  "url": "creeksidetackle.ca",
+  "brief": "For the branding, I'd like to aim for a clean, professional outdoor look that reflects fishing and the Canadian outdoors. I want the brand to feel trustworthy and established while still being approachable and affordable.",
+  "tagline": "Honest Gear. Local Water.",
+  "taglineRationale": "It makes two plain promises a small shop can keep: fair, dependable gear, chosen for the creeks, rivers and lakes people actually fish. It is short enough for a hat or a sticker, and it makes no claim about rankings, guarantees or where products are made.",
+  "taglines": [
+    { "line": "Honest Gear. Local Water.", "note": "Selected. Plain, confident, and true at any size of business.", "selected": true },
+    { "line": "Gear for the water close to home.", "note": "Warm and descriptive. Works as a website subhead." },
+    { "line": "Rig up. Head out.", "note": "Energetic call to action for social and promotions." },
+    { "line": "Every cast counts.", "note": "Encouraging, but leans motivational rather than brand-defining." },
+    { "line": "Fair prices for good days on the water.", "note": "Clear on value. Too long for merchandise." }
+  ],
+  "essence": "Good gear for the water close to home.",
+  "story": [
+    "Most anglers learn on a creek. It is the closest water to home, the place you can reach after work or on a Saturday morning with a single rod and a pocket of lures. Nobody there cares what your reel cost. What matters is that your line holds, your hooks are sharp and you know what to tie on.",
+    "Creekside Tackle is built around that feeling. It is a Canadian tackle shop for everyday anglers: people starting out, families heading to the cottage, and regulars who fish the same river every season. The range is focused on essentials that work, priced so that a snagged lure is a shrug and not a setback.",
+    "The name says where we stand. Not in a showroom, not on a pro tour, but on the bank, a few steps from the water, ready to help someone make the next cast."
+  ],
+  "mission": "Make fishing easier to start and easier to keep doing, with dependable tackle at fair prices and straightforward advice for anglers at every level.",
+  "vision": "To become the Canadian tackle shop everyday anglers trust first: known for gear that works, honest guidance and a real love of time on the water.",
+  "values": [
+    { "name": "Fair Prices", "text": "Good fishing should not need a big budget. We price for the angler who fishes often and loses a lure or two along the way." },
+    { "name": "Gear That Works", "text": "We keep a focused range of tackle chosen for real conditions on Canadian water, and we say what each item is for." },
+    { "name": "Straight Talk", "text": "Clear descriptions, plain language and no hype. If a product is right for a beginner, we say so. If it is not, we say that too." },
+    { "name": "Everyone Belongs", "text": "First cast or five-hundredth, kids or grandparents, river or ice hole. Nobody needs to prove anything to fish with us." },
+    { "name": "Respect the Water", "text": "Pack it in, pack it out, handle fish with care and follow local regulations. The places we fish are the reason we exist." }
+  ],
+  "personality": {
+    "summary": "The friendly regular at the boat launch: knows a lot, shares it freely and never makes you feel out of place.",
+    "traits": ["Dependable", "Down-to-earth", "Knowledgeable", "Outdoorsy", "Welcoming", "Good-humoured"],
+    "isNot": [
+      ["Confident", "Boastful"],
+      ["Practical", "Technical"],
+      ["Friendly", "Goofy"],
+      ["Rugged", "Macho"],
+      ["Affordable", "Cheap"],
+      ["Established", "Old-fashioned"]
+    ]
+  },
+  "positioning": {
+    "statement": "For everyday Canadian anglers who want dependable gear without big-box confusion or premium price tags, Creekside Tackle is the approachable tackle shop that keeps a focused range of reliable essentials at fair prices, explained in plain language.",
+    "pillars": [
+      { "title": "Focused, not endless", "text": "A curated range of essentials beats a thousand near-identical listings. Fewer choices, better choices." },
+      { "title": "Clear, not clever", "text": "Every product states what it catches, where it works and how to rig it. Beginners feel confident buying." },
+      { "title": "Canadian, not generic", "text": "Freshwater species, Canadian seasons and local water shape the range, the language and the imagery." }
+    ],
+    "against": [
+      { "who": "Big-box sporting goods", "gap": "Huge aisles, little guidance." },
+      { "who": "Premium tackle brands", "gap": "Built for pros, priced for pros." },
+      { "who": "Dropship storefronts", "gap": "Anonymous, inconsistent and hard to trust." }
+    ]
+  },
+  "colors": {
+    "primary": [
+      { "name": "Spruce", "hex": "#1F3D2E", "use": "Primary brand colour. Logo, headers, footers, packaging fields and primary buttons.", "rec": "Use it generously. It should be the colour people remember." },
+      { "name": "Lake", "hex": "#2B6077", "use": "Water colour in the symbol. Links, secondary buttons, information panels.", "rec": "Pair with Birch or white. Avoid placing Lake directly on Spruce for text." }
+    ],
+    "secondary": [
+      { "name": "Moss", "hex": "#5E7A49", "use": "Supporting green for category tags, illustrations and pattern work.", "rec": "Use for large shapes. For small text use Spruce instead." },
+      { "name": "Glacier", "hex": "#A9C9CF", "use": "Light water tone for wave lines on dark backgrounds and soft panels.", "rec": "Never use for text on light backgrounds." },
+      { "name": "Driftwood", "hex": "#B8956A", "use": "Earthy tan for kraft packaging accents, dividers and badges.", "rec": "Pairs with Spruce and Granite. Keep it below 15% of a layout." }
+    ],
+    "accent": [
+      { "name": "Bobber Red", "hex": "#C2412A", "use": "Taken from the classic red-and-white float. Sale tags, key calls to action, new-product flags.", "rec": "One accent moment per layout. Never use it for the logo." }
+    ],
+    "neutral": [
+      { "name": "Granite", "hex": "#24292A", "use": "Body text and dark UI elements.", "rec": "Use instead of pure black for text." },
+      { "name": "Stone", "hex": "#636A60", "use": "Secondary text, captions and borders.", "rec": "Minimum 14px for text." },
+      { "name": "Birch", "hex": "#F2F1E9", "use": "Primary light background for web and print.", "rec": "Default page background instead of pure white." },
+      { "name": "Paper", "hex": "#FBFBF7", "use": "Cards and raised surfaces on Birch.", "rec": "Use to separate content from a Birch background." }
+    ],
+    "lightBackgrounds": [
+      { "name": "Birch", "hex": "#F2F1E9" },
+      { "name": "Paper", "hex": "#FBFBF7" },
+      { "name": "Mist", "hex": "#E2EAE6" },
+      { "name": "Kraft", "hex": "#D8C6A6" }
+    ],
+    "darkBackgrounds": [
+      { "name": "Spruce", "hex": "#1F3D2E" },
+      { "name": "Night Spruce", "hex": "#14281E" },
+      { "name": "Deep Lake", "hex": "#173C4B" },
+      { "name": "Granite", "hex": "#24292A" }
+    ]
+  },
+  "type": {
+    "primary": { "family": "Barlow Condensed", "weights": ["600 SemiBold", "700 Bold"], "role": "Headlines, the wordmark, navigation, product titles and packaging. Set in uppercase for display with slight tracking.", "why": "Condensed, sturdy and direct, like trail signage and stamped tackle-box lids. It fits long product names on narrow packaging." },
+    "secondary": { "family": "Barlow", "weights": ["400 Regular", "500 Medium", "600 SemiBold"], "role": "Body copy, descriptions, buttons and interface text.", "why": "From the same superfamily as the display face, so the system feels designed as one. Open, friendly and very readable on screens." },
+    "accent": { "family": "IBM Plex Mono", "weights": ["500 Medium"], "role": "Specs only: line weight, hook size, lure weight, SKUs and dates.", "why": "Tackle runs on numbers (8 lb, #6, 1/8 oz). A mono face makes specs scannable and gives packaging a field-equipment feel." }
+  }
+}

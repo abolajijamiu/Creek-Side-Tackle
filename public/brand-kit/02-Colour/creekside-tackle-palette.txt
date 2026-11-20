@@ -1,0 +1,14 @@
+Spruce         #1F3D2E   RGB 31, 61, 46    primary
+Lake           #2B6077   RGB 43, 96, 119   primary
+Moss           #5E7A49   RGB 94, 122, 73   secondary
+Glacier        #A9C9CF   RGB 169, 201, 207 secondary
+Driftwood      #B8956A   RGB 184, 149, 106 secondary
+Bobber Red     #C2412A   RGB 194, 65, 42   accent
+Granite        #24292A   RGB 36, 41, 42    neutral
+Stone          #636A60   RGB 99, 106, 96   neutral
+Birch          #F2F1E9   RGB 242, 241, 233 neutral
+Paper          #FBFBF7   RGB 251, 251, 247 neutral
+Mist           #E2EAE6   RGB 226, 234, 230 background
+Kraft          #D8C6A6   RGB 216, 198, 166 background
+Night Spruce   #14281E   RGB 20, 40, 30    background
+Deep Lake      #173C4B   RGB 23, 60, 75    background

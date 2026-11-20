@@ -1,0 +1,21 @@
+CREEKSIDE TACKLE — TYPOGRAPHY
+
+All three typefaces are free under the SIL Open Font License and available from Google Fonts.
+
+PRIMARY — Barlow Condensed (SemiBold 600, Bold 700)
+  Headlines, the wordmark, navigation, product titles and packaging. Set in uppercase for display with slight tracking.
+  https://fonts.google.com/specimen/Barlow+Condensed
+
+SECONDARY — Barlow (Regular 400, Medium 500, SemiBold 600)
+  Body copy, descriptions, buttons and interface text.
+  https://fonts.google.com/specimen/Barlow
+
+ACCENT — IBM Plex Mono (Medium 500)
+  Specs only: line weight, hook size, lure weight, SKUs and dates.
+  https://fonts.google.com/specimen/IBM+Plex+Mono
+
+Web embed:
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+
+Fallbacks: 'Arial Narrow', Arial, sans-serif (display) · Arial, Helvetica, sans-serif (body) · Menlo, Consolas, monospace (specs)
+Shopify: Barlow and Barlow Condensed are both available in the Shopify font library.

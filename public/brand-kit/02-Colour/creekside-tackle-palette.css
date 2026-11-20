@@ -1,0 +1,17 @@
+/* Creekside Tackle colour tokens */
+:root {
+  --ct-spruce: #1F3D2E;
+  --ct-lake: #2B6077;
+  --ct-moss: #5E7A49;
+  --ct-glacier: #A9C9CF;
+  --ct-driftwood: #B8956A;
+  --ct-bobber-red: #C2412A;
+  --ct-granite: #24292A;
+  --ct-stone: #636A60;
+  --ct-birch: #F2F1E9;
+  --ct-paper: #FBFBF7;
+  --ct-mist: #E2EAE6;
+  --ct-kraft: #D8C6A6;
+  --ct-night-spruce: #14281E;
+  --ct-deep-lake: #173C4B;
+}
